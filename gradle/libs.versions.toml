@@ -1,6 +1,7 @@
 [versions]
+targetSdk = "34"
 agp = "8.3.2"
-kotlin = "1.9.23"
+kotlin = "1.9.20"
 ksp = "1.9.23-1.0.20"
 serializationJson = "1.6.3"
 coroutines = "1.8.0"
@@ -25,6 +26,7 @@ skeleton = "5.0.0"
 navigation = "2.7.7"
 
 [libraries]
+kotlin = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
@@ -70,3 +72,4 @@ android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlin-symbolProcessing = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
