@@ -28,5 +28,4 @@ include(":app")
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":data")
-include(":domain")
 include(":core")

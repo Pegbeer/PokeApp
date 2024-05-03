@@ -1,27 +1,33 @@
 package com.pegbeer.pokeapp.data.remote.repository
 
+import androidx.paging.ExperimentalPagingApi
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
+import com.pegbeer.pokeapp.data.local.PokemonDatabase
+import com.pegbeer.pokeapp.data.paging.PokemonPagingSource
+import com.pegbeer.pokeapp.data.paging.PokemonRemoteMediator
 import com.pegbeer.pokeapp.data.remote.PokeAppService
-import com.pegbeer.pokeapp.data.remote.dto.PokemonDto
-import com.pegbeer.pokeapp.domain.repository.Repository
+import com.pegbeer.pokeapp.data.remote.dto.PokemonResponse
+import me.pegbeer.pokeapp.core.repository.Repository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import me.pegbeer.pokeapp.core.Result
-import retrofit2.Response
+import me.pegbeer.pokeapp.core.model.Pokemon
 
 class RepositoryImpl(
-    private val service: PokeAppService
+    private val service: PokeAppService,
+    private val database:PokemonDatabase
 ) : Repository {
-    override suspend fun fetchPokemonList(page:Int):Flow<Result<PokemonDto>> = flow{
-        val response = service.fetchPokemonList(
-            limit = PAGING_SIZE,
-            offset = page * PAGING_SIZE
-        )
 
-        if (!response.isSuccessful) emit(Result.Error(response.message(),response.code()))
 
-        if (response.body() == null) emit(Result.Error(response.message(),response.code()))
-
-        emit(Result.Success(response.body()!!))
+    @OptIn(ExperimentalPagingApi::class)
+    override suspend fun fetchPokemonList(page:Int): Flow<PagingData<Pokemon>> {
+        return Pager(
+            config = PagingConfig(PAGING_SIZE, enablePlaceholders = false),
+            pagingSourceFactory = { PokemonPagingSource(database) },
+            remoteMediator = PokemonRemoteMediator(database,service)
+        ).flow
     }
 
     companion object{

@@ -1,9 +1,6 @@
-package com.pegbeer.pokeapp.domain.model
-
-import kotlinx.serialization.Serializable
+package me.pegbeer.pokeapp.core.model
 
 
-@Serializable
 data class Pokemon(
     var page: Int = 0,
     val name: String,

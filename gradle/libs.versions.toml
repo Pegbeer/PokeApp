@@ -1,7 +1,7 @@
 [versions]
 targetSdk = "34"
 agp = "8.3.2"
-kotlin = "1.9.20"
+kotlin = "1.9.23"
 ksp = "1.9.23-1.0.20"
 serializationJson = "1.6.3"
 coroutines = "1.8.0"
@@ -24,6 +24,7 @@ glide = "4.16.0"
 threeTenABP = "1.4.6"
 skeleton = "5.0.0"
 navigation = "2.7.7"
+paging = "3.2.1"
 
 [libraries]
 kotlin = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
@@ -58,14 +59,16 @@ test-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", ve
 room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+room-paging = { module = "androidx.room:room-paging", version.ref = "room" }
 glide = { module = "com.github.bumptech.glide:glide",version.ref = "glide" }
 threeTenABP = { module = "com.jakewharton.threetenabp:threetenabp", version.ref = "threeTenABP" }
 skeleton-layout = { module = "com.faltenreich:skeletonlayout", version.ref = "skeleton" }
+paging-common = { module = "androidx.paging:paging-common", version.ref = "paging" }
 
 [bundles]
 retrofit = ["retrofit-core", "serialization-json", "okhttp", "okhttpInterceptor","okhttp-mockwebserver","retrofit-converter"]
 koin = ["koin", "koin-test","koin-junit"]
-room = ["room-ktx","room-runtime"]
+room = ["room-ktx","room-runtime", "room-paging"]
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -73,4 +76,3 @@ android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlin-symbolProcessing = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }

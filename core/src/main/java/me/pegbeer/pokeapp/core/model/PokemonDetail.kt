@@ -1,4 +1,4 @@
-package com.pegbeer.pokeapp.domain.model
+package me.pegbeer.pokeapp.core.model
 
 import kotlinx.serialization.Serializable
 import kotlin.random.Random

@@ -16,7 +16,6 @@ kotlin{
 dependencies {
 
     implementation(projects.core)
-    implementation(projects.domain)
     implementation(libs.bundles.retrofit)
     implementation(libs.bundles.koin)
     implementation(libs.bundles.room)
