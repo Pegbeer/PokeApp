@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.symbolProcessing)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -14,6 +15,8 @@ kotlin{
 
 dependencies {
 
+    implementation(projects.core)
+    implementation(projects.domain)
     implementation(libs.bundles.retrofit)
     implementation(libs.bundles.koin)
     implementation(libs.bundles.room)
