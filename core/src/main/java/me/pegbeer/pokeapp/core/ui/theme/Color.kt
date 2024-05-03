@@ -1,4 +1,4 @@
-package com.pegbeer.pokeapp.ui.theme
+package me.pegbeer.pokeapp.core.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
