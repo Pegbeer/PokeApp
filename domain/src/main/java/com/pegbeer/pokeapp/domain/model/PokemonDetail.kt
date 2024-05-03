@@ -1,7 +1,9 @@
 package com.pegbeer.pokeapp.domain.model
 
+import kotlinx.serialization.Serializable
 import kotlin.random.Random
 
+@Serializable
 data class PokemonDetail(
     val id: Int,
     val name: String,
@@ -26,12 +28,14 @@ data class PokemonDetail(
     fun getExpString(): String = " $exp/$MAX_EXP"
 
 
+    @Serializable
     data class TypeResponse(
         val slot: Int,
         val type: Type,
     )
 
 
+    @Serializable
     data class Type(
         val name: String,
     )

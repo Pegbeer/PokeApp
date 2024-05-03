@@ -14,5 +14,9 @@ kotlin{
 }
 
 dependencies{
-    implementation(libs.serialization.json)
+
+    implementation(projects.core)
+    implementation(projects.data)
+    implementation(libs.bundles.retrofit)
+    implementation(libs.kotlinx.coroutines)
 }
