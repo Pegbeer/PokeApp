@@ -12,5 +12,10 @@ data class Pokemon(
         return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/" +
                 "pokemon/other/official-artwork/$index.png"
     }
-    fun name(): String = name.replaceFirstChar { it.uppercase() }
+    fun capitalizedName(): String = name.replaceFirstChar { it.uppercase() }
+
+    fun getNumber():String{
+        val number = url.split("/".toRegex()).dropLast(1).last()
+        return "#$number"
+    }
 }

@@ -11,7 +11,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.4"
+        kotlinCompilerExtensionVersion = "1.5.13"
     }
 }
 
@@ -20,13 +20,14 @@ kotlin{
 }
 
 dependencies{
-    implementation(projects.data)
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.activity.compose)
     implementation(platform(libs.compose.bom))
     implementation(libs.serialization.json)
     implementation(libs.paging.common)
+    implementation(libs.coil)
+    implementation(libs.coil.compose)
 
     implementation(libs.ui)
     implementation(libs.ui.graphics)

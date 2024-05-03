@@ -12,7 +12,7 @@ espresso-core = "3.5.1"
 lifecycle-runtime-ktx = "2.7.0"
 activity-compose = "1.9.0"
 compose-bom = "2024.04.01"
-kotlinCompilerExtensionVersion = "1.5.4"
+kotlinCompilerExtensionVersion = "1.5.13"
 appcompat = "1.6.1"
 material = "1.11.0"
 retrofit = "2.11.0"
@@ -20,11 +20,11 @@ retrofit-converter = "2.11.0"
 okhttp = "4.12.0"
 koin = "3.5.6"
 room = "2.6.1"
-glide = "4.16.0"
 threeTenABP = "1.4.6"
 skeleton = "5.0.0"
 navigation = "2.7.7"
 paging = "3.2.1"
+coil = "2.6.0"
 
 [libraries]
 kotlin = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
@@ -60,10 +60,11 @@ room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
 room-paging = { module = "androidx.room:room-paging", version.ref = "room" }
-glide = { module = "com.github.bumptech.glide:glide",version.ref = "glide" }
 threeTenABP = { module = "com.jakewharton.threetenabp:threetenabp", version.ref = "threeTenABP" }
 skeleton-layout = { module = "com.faltenreich:skeletonlayout", version.ref = "skeleton" }
 paging-common = { module = "androidx.paging:paging-common", version.ref = "paging" }
+coil = { module = "io.coil-kt:coil", version.ref = "coil" }
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 
 [bundles]
 retrofit = ["retrofit-core", "serialization-json", "okhttp", "okhttpInterceptor","okhttp-mockwebserver","retrofit-converter"]
