@@ -1,4 +1,5 @@
 [versions]
+targetSdk = "34"
 agp = "8.3.2"
 kotlin = "1.9.23"
 ksp = "1.9.23-1.0.20"
@@ -23,8 +24,10 @@ glide = "4.16.0"
 threeTenABP = "1.4.6"
 skeleton = "5.0.0"
 navigation = "2.7.7"
+paging = "3.2.1"
 
 [libraries]
+kotlin = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
@@ -51,18 +54,21 @@ okhttp-mockwebserver = { module = "com.squareup.okhttp3:mockwebserver", version.
 koin = { module = "io.insert-koin:koin-android", version.ref = "koin" }
 koin-test = { module = "io.insert-koin:koin-test", version.ref = "koin" }
 koin-junit = { module = "io.insert-koin:koin-test-junit4", version.ref = "koin" }
+kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 test-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+room-paging = { module = "androidx.room:room-paging", version.ref = "room" }
 glide = { module = "com.github.bumptech.glide:glide",version.ref = "glide" }
 threeTenABP = { module = "com.jakewharton.threetenabp:threetenabp", version.ref = "threeTenABP" }
 skeleton-layout = { module = "com.faltenreich:skeletonlayout", version.ref = "skeleton" }
+paging-common = { module = "androidx.paging:paging-common", version.ref = "paging" }
 
 [bundles]
 retrofit = ["retrofit-core", "serialization-json", "okhttp", "okhttpInterceptor","okhttp-mockwebserver","retrofit-converter"]
 koin = ["koin", "koin-test","koin-junit"]
-room = ["room-ktx","room-runtime"]
+room = ["room-ktx","room-runtime", "room-paging"]
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
