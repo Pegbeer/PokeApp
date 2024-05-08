@@ -7,6 +7,10 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.paging.compose.collectAsLazyPagingItems
+import com.pegbeer.pokeapp.ui.home.HomeScreen
+import com.pegbeer.pokeapp.ui.home.HomeViewModel
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun PokeAppNavHost(
@@ -15,7 +19,9 @@ fun PokeAppNavHost(
 ){
     NavHost(navController = navController, startDestination = Home.route){
         composable(Home.route){
-            Home.screen()
+            val viewModel:HomeViewModel = koinViewModel()
+            val pokemons = viewModel.pokemons.collectAsLazyPagingItems()
+            HomeScreen(pokemons = pokemons)
         }
     }
 }

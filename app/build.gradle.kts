@@ -56,6 +56,7 @@ kotlin{
 dependencies {
 
     implementation(projects.core)
+    implementation(projects.data)
     implementation(libs.activity.compose)
     implementation(platform(libs.compose.bom))
     implementation(libs.ui)
@@ -63,6 +64,9 @@ dependencies {
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
     implementation(libs.compose.navigation)
+    implementation(libs.bundles.koin)
+    implementation(libs.koin.compose)
+    implementation(libs.paging.compose)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

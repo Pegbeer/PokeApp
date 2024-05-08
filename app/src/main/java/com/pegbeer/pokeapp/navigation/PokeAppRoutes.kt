@@ -10,7 +10,7 @@ interface PokeAppRoutes{
 
 object Home : PokeAppRoutes{
     override val route: String = "home"
-    override val screen: @Composable () -> Unit = { HomeScreen() }
+    override val screen: @Composable () -> Unit = {  }
 }
 
 val pokeAppScreens = listOf(Home)

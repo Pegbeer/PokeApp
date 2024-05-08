@@ -17,6 +17,9 @@ interface PokemonDao {
     @Query("SELECT * FROM pokemonentity WHERE page = :page LIMIT :pageSize")
     suspend fun getPokemonList(page:Int, pageSize:Int = 20):List<PokemonEntity>
 
+    @Query("SELECT * FROM pokemonentity ORDER BY ROWID DESC LIMIT 1")
+    suspend fun getLastPokemon():PokemonEntity?
+
     @Query("SELECT * FROM pokemonentity WHERE :name = name")
     suspend fun getPokemonByName(name:String):PokemonEntity
 

@@ -1,14 +1,17 @@
 package com.pegbeer.pokeapp.data.paging
 
+import android.util.Log
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
+import androidx.room.paging.util.getClippedRefreshKey
+import androidx.room.withTransaction
 import com.pegbeer.pokeapp.data.local.PokemonDatabase
-import com.pegbeer.pokeapp.data.local.entity.PokemonEntity
 import com.pegbeer.pokeapp.data.mapper.toPokemonEntity
 import com.pegbeer.pokeapp.data.remote.PokeAppService
 import me.pegbeer.pokeapp.core.model.Pokemon
+import kotlin.math.roundToInt
 
 @OptIn(ExperimentalPagingApi::class)
 class PokemonRemoteMediator(
@@ -19,32 +22,46 @@ class PokemonRemoteMediator(
         loadType: LoadType,
         state: PagingState<Int, Pokemon>
     ): MediatorResult {
-
+        Log.d(TAG, "loadType: $loadType")
         return try {
             val loadKey = when (loadType) {
-                LoadType.REFRESH -> null
+                LoadType.REFRESH -> 0
                 LoadType.PREPEND -> return MediatorResult.Success(endOfPaginationReached = true)
                 LoadType.APPEND -> {
-                    val lastItem = state.lastItemOrNull() ?: return MediatorResult.Success(endOfPaginationReached = true)
-                    return MediatorResult.Success(endOfPaginationReached = true)
+                    state.lastItemOrNull()?.getNumber() ?: 0
                 }
             }
 
-            val response = api.fetchPokemonList(loadKey ?: 0, state.config.pageSize)
+
+            val response = api.fetchPokemonList(state.config.pageSize, loadKey)
             if(!response.isSuccessful) return MediatorResult.Error(Exception(response.message()))
 
+            val pageResult = (loadKey / state.config.pageSize) + 1
 
             val pokemons = response.body()!!.results.map { pokemon ->
-                pokemon.toPokemonEntity()
+                pokemon.toPokemonEntity().apply {
+                    page = pageResult
+                }
             }
 
-            database.dao.insertAllPokemon(pokemons)
+            database.withTransaction {
+                if(loadType == LoadType.REFRESH){
+                    database.dao.deleteAll()
+                }
+                database.dao.insertAllPokemon(pokemons)
+            }
+
+            Log.d(TAG, "endOfPaginationReached: ${pokemons.isEmpty()}")
 
             MediatorResult.Success(endOfPaginationReached = pokemons.isEmpty())
         } catch (exception: Exception) {
+            Log.d(TAG, "load: $exception")
             MediatorResult.Error(exception)
         }
     }
 
+    companion object{
+        const val TAG = "PokemonRemoteMediator"
+    }
 
 }

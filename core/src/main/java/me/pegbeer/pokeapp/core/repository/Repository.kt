@@ -6,5 +6,5 @@ import kotlinx.coroutines.flow.Flow
 import me.pegbeer.pokeapp.core.model.Pokemon
 
 interface Repository {
-    suspend fun fetchPokemonList(page:Int): Flow<PagingData<Pokemon>>
+    fun fetchPokemonList(): Flow<PagingData<Pokemon>>
 }

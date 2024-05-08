@@ -8,12 +8,20 @@ fun PokemonDto.toPokemonEntity():PokemonEntity{
     return PokemonEntity(
         page = this.page,
         name = this.name,
-        url = this.name
+        url = this.url
     )
 }
 
 fun PokemonEntity.toPokemon():Pokemon{
     return Pokemon(
+        page = this.page,
+        name = this.name,
+        url = this.url
+    )
+}
+
+fun Pokemon.toEntity():PokemonEntity{
+    return PokemonEntity(
         page = this.page,
         name = this.name,
         url = this.url

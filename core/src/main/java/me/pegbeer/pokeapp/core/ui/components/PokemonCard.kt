@@ -1,29 +1,22 @@
 package me.pegbeer.pokeapp.core.ui.components
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material3.Card
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -39,21 +32,23 @@ import me.pegbeer.pokeapp.core.ui.theme.White40
 
 @Composable
 fun PokemonCard(
-    pokemon:Pokemon
+    pokemon:Pokemon?,
+    modifier: Modifier = Modifier
 ){
     Box(
-        modifier = Modifier
-            .size(165.dp)
+        modifier = modifier
+            .fillMaxWidth()
             .clip(RoundedCornerShape(10.dp))
             .background(color = White40)
-            .padding(24.dp)
+            .padding(15.dp)
     ){
         Column(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier
+                .fillMaxSize(),
             verticalArrangement = Arrangement.SpaceBetween
         ) {
             Text(
-                text = pokemon.getNumber(),
+                text = pokemon?.getNumberAsString() ?: "#000",
                 modifier = Modifier.align(Alignment.End),
                 style = Typography.titleSmall
             )
@@ -63,14 +58,14 @@ fun PokemonCard(
                     .fillMaxHeight(0.6f)
                     .align(Alignment.CenterHorizontally),
                 model = ImageRequest.Builder(LocalContext.current)
-                    .data(pokemon.getNumber())
+                    .data(pokemon?.getImageUrl())
                     .crossfade(true)
                     .placeholder(R.drawable.image_24)
                     .build(),
                 contentDescription = null
             )
             Text(
-                text = pokemon.capitalizedName(),
+                text = pokemon?.capitalizedName() ?: "????",
                 style = Typography.titleMedium.copy(
                     color = BlueGrey40,
                     fontWeight = FontWeight.SemiBold,
