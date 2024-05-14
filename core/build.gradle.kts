@@ -23,11 +23,14 @@ dependencies{
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.activity.compose)
+    implementation(libs.palette)
+
     implementation(platform(libs.compose.bom))
     implementation(libs.serialization.json)
     implementation(libs.paging.common)
     implementation(libs.coil)
     implementation(libs.coil.compose)
+    implementation(libs.compose.animation)
 
     implementation(libs.ui)
     implementation(libs.ui.graphics)

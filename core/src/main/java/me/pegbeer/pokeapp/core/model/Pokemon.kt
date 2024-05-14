@@ -1,10 +1,13 @@
 package me.pegbeer.pokeapp.core.model
 
+
 import android.util.Log
+import kotlinx.serialization.Serializable
 
 
+@Serializable
 data class Pokemon(
-    var page: Int = 0,
+    var page: Int,
     val name: String,
     val url: String,
 ) {

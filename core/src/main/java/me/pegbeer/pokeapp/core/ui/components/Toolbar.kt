@@ -30,11 +30,13 @@ import me.pegbeer.pokeapp.core.ui.theme.Typography
 
 @Composable
 fun Toolbar(
+    modifier: Modifier = Modifier,
     title: String,
     canNavigateBack: Boolean,
     navigateUp: () -> Unit = {},
     actions: @Composable () -> Unit = {},
-    scrollBehavior: TopAppBarScrollBehavior? = null
+    scrollBehavior: TopAppBarScrollBehavior? = null,
+    suffix:String? = null
 ){
     Surface(
         Modifier
@@ -46,6 +48,7 @@ fun Toolbar(
         ) {
             if(canNavigateBack){
                 TopAppBar(
+                    modifier = modifier,
                     title = {
                         Row(
                             modifier = Modifier.fillMaxWidth(),
@@ -53,7 +56,7 @@ fun Toolbar(
                             horizontalArrangement = Arrangement.SpaceBetween
                         ){
                             Text(title, color = BlueGrey40, style = Typography.titleMedium)
-                            Text("#153", style = Typography.headlineSmall)
+                            Text(suffix ?: "#???", style = Typography.headlineSmall)
                         }
                     },
                     actions = { actions() },
@@ -69,6 +72,7 @@ fun Toolbar(
                 )
             }else{
                 TopAppBar(
+                    modifier = modifier,
                     title = { Text(
                         title,
                         color = Blue40,

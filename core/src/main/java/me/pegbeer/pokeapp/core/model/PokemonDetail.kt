@@ -3,14 +3,14 @@ package me.pegbeer.pokeapp.core.model
 import kotlinx.serialization.Serializable
 import kotlin.random.Random
 
-@Serializable
+
 data class PokemonDetail(
     val id: Int,
     val name: String,
     val height: Int,
     val weight: Int,
     val experience: Int,
-    val types: List<TypeResponse>,
+    val types: List<String>,
     val hp: Int = Random.nextInt(MAX_HP),
     val attack: Int = Random.nextInt(MAX_ATTACK),
     val defense: Int = Random.nextInt(MAX_DEFENSE),
@@ -27,18 +27,7 @@ data class PokemonDetail(
     fun getSpeedString(): String = " $speed/$MAX_SPEED"
     fun getExpString(): String = " $exp/$MAX_EXP"
 
-
-    @Serializable
-    data class TypeResponse(
-        val slot: Int,
-        val type: Type,
-    )
-
-
-    @Serializable
-    data class Type(
-        val name: String,
-    )
+    fun capitalizedName(): String = name.replaceFirstChar { it.uppercase() }
 
     companion object {
         const val MAX_HP = 300

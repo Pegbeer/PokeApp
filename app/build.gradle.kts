@@ -64,9 +64,12 @@ dependencies {
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
     implementation(libs.compose.navigation)
+    implementation(libs.compose.animation)
     implementation(libs.bundles.koin)
     implementation(libs.koin.compose)
     implementation(libs.paging.compose)
+    implementation(libs.coil.compose)
+    implementation(libs.gson)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

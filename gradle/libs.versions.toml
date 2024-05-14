@@ -12,6 +12,7 @@ espresso-core = "3.5.1"
 lifecycle-runtime-ktx = "2.7.0"
 activity-compose = "1.9.0"
 compose-bom = "2024.04.01"
+compose-animation = "1.7.0-alpha08"
 kotlinCompilerExtensionVersion = "1.5.13"
 appcompat = "1.6.1"
 material = "1.11.0"
@@ -25,6 +26,8 @@ skeleton = "5.0.0"
 navigation = "2.7.7"
 paging = "3.2.1"
 coil = "2.6.0"
+palette = "1.0.0"
+gson = "2.10.1"
 
 [libraries]
 kotlin = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
@@ -36,12 +39,14 @@ lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtim
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
 compose-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "navigation" }
+compose-animation = { module = "androidx.compose.animation:animation", version.ref = "compose-animation" }
 ui = { group = "androidx.compose.ui", name = "ui" }
 ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+palette = { module = "androidx.palette:palette-ktx", version.ref = "palette" }
 material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
@@ -67,6 +72,7 @@ paging-common = { module = "androidx.paging:paging-common", version.ref = "pagin
 paging-compose = { module = "androidx.paging:paging-compose", version.ref = "paging" }
 coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 
 [bundles]
 retrofit = ["retrofit-core", "serialization-json", "okhttp", "okhttpInterceptor","okhttp-mockwebserver","retrofit-converter"]
@@ -78,4 +84,5 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kotlin-parcelization = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 kotlin-symbolProcessing = { id = "com.google.devtools.ksp", version.ref = "ksp" }

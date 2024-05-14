@@ -3,6 +3,8 @@ package com.pegbeer.pokeapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.ExperimentalSharedTransitionApi
+import androidx.compose.animation.SharedTransitionLayout
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -19,14 +21,20 @@ import com.pegbeer.pokeapp.navigation.PokeAppNavHost
 import com.pegbeer.pokeapp.navigation.PokeAppRoutes
 import me.pegbeer.pokeapp.core.ui.theme.PokeAppTheme
 
+@OptIn(ExperimentalSharedTransitionApi::class)
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             PokeAppTheme {
-                val currentScreen:PokeAppRoutes by remember{ mutableStateOf(Home) }
-                val navController = rememberNavController()
-                PokeAppNavHost(navController = navController)
+                SharedTransitionLayout {
+                    val navController = rememberNavController()
+                    PokeAppNavHost(
+                        navController = navController,
+                        sharedTransitionScope = this
+                    )
+                }
             }
         }
     }
