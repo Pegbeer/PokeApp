@@ -1,5 +1,6 @@
 package com.pegbeer.pokeapp.data.remote
 
+import com.pegbeer.pokeapp.data.remote.dto.PokemonDescriptionDto
 import com.pegbeer.pokeapp.data.remote.dto.PokemonInfoDto
 import com.pegbeer.pokeapp.data.remote.dto.PokemonResponse
 import retrofit2.Response
@@ -21,6 +22,11 @@ interface PokeAppService {
     suspend fun fetchPokemonDetail(
         @Path("id") id:Int
     ):Response<PokemonInfoDto>
+
+    @GET("pokemon-species/{id}")
+    suspend fun fetchPokemonDescription(
+        @Path("id")id:Int
+    ):Response<PokemonDescriptionDto>
 
     companion object{
         const val BASEURL = "https://pokeapi.co/api/v2/"

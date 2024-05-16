@@ -1,6 +1,5 @@
 package com.pegbeer.pokeapp.ui.home
 
-import android.os.Bundle
 import android.widget.Toast
 import androidx.compose.animation.AnimatedContentScope
 import androidx.compose.animation.ExperimentalSharedTransitionApi
@@ -32,19 +31,13 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.ActivityNavigator
 import androidx.navigation.NavController
 import androidx.paging.LoadState
-import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
-import com.pegbeer.pokeapp.navigation.Details
-import com.pegbeer.pokeapp.navigation.Home
-import me.pegbeer.pokeapp.core.model.Pokemon
 import me.pegbeer.pokeapp.core.ui.components.PokemonCard
 import me.pegbeer.pokeapp.core.ui.components.SearchField
 import me.pegbeer.pokeapp.core.ui.components.Toolbar
 import me.pegbeer.pokeapp.core.ui.theme.PokeAppTheme
-import org.koin.androidx.compose.koinViewModel
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalSharedTransitionApi::class)
 @Composable

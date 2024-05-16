@@ -2,18 +2,14 @@
 
 package com.pegbeer.pokeapp.navigation
 
-import android.util.Log
 import androidx.compose.animation.AnimatedContentScope
 import androidx.compose.animation.ExperimentalSharedTransitionApi
 import androidx.compose.animation.SharedTransitionScope
 import androidx.compose.runtime.Composable
-import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
-import com.google.gson.Gson
 import com.pegbeer.pokeapp.ui.detail.DetailScreen
 import com.pegbeer.pokeapp.ui.home.HomeScreen
 import com.pegbeer.pokeapp.ui.home.HomeViewModel
-import me.pegbeer.pokeapp.core.model.Pokemon
 
 interface PokeAppRoutes{
     val route:String

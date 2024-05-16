@@ -37,8 +37,12 @@ internal class RepositoryImpl(
         val response = service.fetchPokemonDetail(id)
         if(!response.isSuccessful) emit(Result.Error(response.message(),response.code()))
 
+        val descriptionResponse = service.fetchPokemonDescription(id)
+        if(!descriptionResponse.isSuccessful) emit(Result.Error(descriptionResponse.message(),descriptionResponse.code()))
+
+
         response.body()?.let {
-            emit(Result.Success(it.toPokemonDetail()))
+            emit(Result.Success(it.toPokemonDetail(descriptionResponse.body()?.description)))
         }
     }
 

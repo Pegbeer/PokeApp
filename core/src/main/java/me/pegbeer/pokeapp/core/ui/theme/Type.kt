@@ -67,10 +67,25 @@ val Typography = Typography(
         lineHeight = 16.sp,
         letterSpacing = 0.5.sp
     ),
+    bodyMedium = TextStyle(
+        fontFamily = fontFamily,
+        fontWeight = FontWeight.Medium,
+        fontSize = 14.sp,
+        lineHeight = 20.sp,
+        letterSpacing = 0.5.sp
+    ),
     headlineSmall = TextStyle(
         fontFamily = fontFamily,
         fontWeight = FontWeight.SemiBold,
         fontSize = 16.sp,
+        lineHeight = 26.sp,
+        letterSpacing = 0.5.sp,
+        color = Grey40
+    ),
+    headlineMedium = TextStyle(
+        fontFamily = fontFamily,
+        fontWeight = FontWeight.Bold,
+        fontSize = 20.sp,
         lineHeight = 26.sp,
         letterSpacing = 0.5.sp,
         color = Grey40

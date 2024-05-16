@@ -30,13 +30,14 @@ fun Pokemon.toEntity():PokemonEntity{
     )
 }
 
-fun PokemonInfoDto.toPokemonDetail():PokemonDetail{
+fun PokemonInfoDto.toPokemonDetail(description:String? = null):PokemonDetail{
     return PokemonDetail(
         id = this.id,
         name = this.name,
         height = this.height,
         weight = this.weight,
         experience = this.experience,
+        description = description ?: "",
         types = this.types.map { it.type.name }
     )
 }
