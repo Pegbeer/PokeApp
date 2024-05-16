@@ -27,7 +27,6 @@ import me.pegbeer.pokeapp.core.ui.theme.Typography
 
 @Composable
 fun ListTile(
-    modifier: Modifier = Modifier,
     title:String,
     text:String,
     icon:ImageVector

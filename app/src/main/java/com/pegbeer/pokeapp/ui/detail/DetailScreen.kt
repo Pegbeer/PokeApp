@@ -100,7 +100,10 @@ fun DetailScreen(
                             ),
                             title = pokemon?.capitalizedName() ?: "",
                             canNavigateBack = true,
-                            suffix = pokemon?.getNumberAsString()
+                            suffix = pokemon?.getNumberAsString(),
+                            navigateUp = {
+                                navHostController.navigateUp()
+                            }
                         )
                         Column(
                             modifier = Modifier

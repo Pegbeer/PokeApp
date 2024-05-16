@@ -13,7 +13,6 @@ import org.koin.androidx.compose.koinViewModel
 @OptIn(ExperimentalSharedTransitionApi::class)
 @Composable
 fun PokeAppNavHost(
-    modifier: Modifier = Modifier,
     navController: NavHostController,
     sharedTransitionScope: SharedTransitionScope
 ){

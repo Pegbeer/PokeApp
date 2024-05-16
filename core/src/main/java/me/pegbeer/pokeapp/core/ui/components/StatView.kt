@@ -20,8 +20,7 @@ import kotlin.random.Random
 fun StatView(
     label:String,
     progress:Int,
-    color: Color,
-    suffix:String? = null
+    color: Color
 ){
     Row(
         modifier = Modifier
@@ -58,8 +57,7 @@ fun StatViewPreview(){
         StatView(
             label = "HP",
             progress = hp,
-            color = Color.Green,
-            suffix = String.format("%03d",hp)
+            color = Color.Green
         )
     }
 }
